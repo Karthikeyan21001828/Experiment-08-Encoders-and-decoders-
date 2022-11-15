@@ -1,9 +1,11 @@
 # Experiment-08- Encoders-and-decoders 
-### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
+### HARDWARE REQUIRED:
+PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED:   
+Quartus prime
 ### THEORY 
-
 ## Encoders
 Binary code of N digits can be used to store 2N distinct elements of coded information. This is what encoders and decoders are used for. Encoders convert 2N lines of input into a code of N bits and Decoders decode the N bits into 2N lines.
 
@@ -55,42 +57,69 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
-
-
+### STEP1:
+create module encoder and decoder.
+### STEP2:
+Get inputs and outputs for encoders and decoders.
+### STEP3:
+perform or operation for encoder and and logic for decoders.
+### STEP4:
+perform RTL LOGIC and get waveform.
 
 ### PROGRAM 
+```
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Karthikeyan.K
+RegisterNumber: 212221230046
 */
+ENCODER
+
+module EX08_ENCODER(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+input d0,d1,d2,d3,d4,d5,d6,d7;
+output a,b,c;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
 
 
+DECODER
 
+module EX08_DECODER(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0 = (~a&~b&~c);
+assign d1 = (~a&~b&c);
+assign d2 = (~a&b&~c);
+assign d3 = (~a&b&c);
+assign d4 = (a&~b&~c);
+assign d5 = (a&~b&c);
+assign d6 = (a&b&~c);
+assign d7 = (a&b&c);
+endmodule 
 
-
-
+```
+### OUTPUT
+### ENCODER
 ### RTL LOGIC  
-
-
-
-
-
-
-
+![op](EN_RTL.png)
 
 ### TIMING DIGRAMS  
-
-
-
-
+![op](EN_Time.jpeg)
 
 ### TRUTH TABLE 
+![op](EN_TT.png)
 
+### DECODER
+### RTL LOGIC  
+![op](DE_RTL.png)
 
+### TIMING DIGRAMS  
+![op](DE_Time.png)
 
-
-
+### TRUTH TABLE 
+![op](DE_TT.png)
 
 ### RESULTS 
+Thus the program to desing encoder and decoder is done.
